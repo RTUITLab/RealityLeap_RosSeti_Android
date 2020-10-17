@@ -36,7 +36,7 @@ class ScannerFragment : Fragment() {
         codeScanner = CodeScanner(requireActivity(), scannerView).apply {
             decodeCallback = DecodeCallback {
                 requireActivity().runOnUiThread {
-                    requireActivity().shortToast(it.text).show()
+                    viewModel.userHash = it.text
                 }
             }
             errorCallback = ErrorCallback {
