@@ -26,6 +26,8 @@
         tools:layout="@layout/fragment_scanner">
         <action
             android:id="@+id/action_scannerFragment_to_inspectionsListFragment"
-            app:destination="@id/inspectionsListFragment" />
+            app:destination="@id/inspectionsListFragment"
+            app:popUpTo="@id/scannerFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
