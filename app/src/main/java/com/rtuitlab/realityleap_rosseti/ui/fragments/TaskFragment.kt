@@ -16,7 +16,7 @@ import com.rtuitlab.realityleap_rosseti.R
 import com.rtuitlab.realityleap_rosseti.databinding.FragmentTaskBinding
 import com.rtuitlab.realityleap_rosseti.extensions.mainActivity
 import com.rtuitlab.realityleap_rosseti.server.models.InspectionTask
-import com.rtuitlab.realityleap_rosseti.viewmodels.ChangeLocationListener
+import com.rtuitlab.realityleap_rosseti.utils.ChangeLocationListener
 import com.rtuitlab.realityleap_rosseti.viewmodels.TaskViewModel
 import kotlinx.android.synthetic.main.fragment_task.*
 import org.koin.androidx.viewmodel.ext.android.viewModel

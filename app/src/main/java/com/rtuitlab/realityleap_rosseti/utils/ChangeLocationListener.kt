@@ -1,4 +1,4 @@
-package com.rtuitlab.realityleap_rosseti.viewmodels
+package com.rtuitlab.realityleap_rosseti.utils
 
 import android.location.Location
 import android.location.LocationListener

@@ -14,6 +14,7 @@ import com.rtuitlab.realityleap_rosseti.extensions.mainActivity
 import com.rtuitlab.realityleap_rosseti.recyclers.inspection_tasks.InspectionTasksAdapter
 import com.rtuitlab.realityleap_rosseti.server.models.InspectionTask
 import com.rtuitlab.realityleap_rosseti.ui.fragments.TaskFragment.Companion.INSPECTION_TASK_KEY
+import com.rtuitlab.realityleap_rosseti.utils.currentUser
 import com.rtuitlab.realityleap_rosseti.viewmodels.InspectionTasksViewModel
 import kotlinx.android.synthetic.main.fragment_inspection_tasks.*
 import org.koin.android.ext.android.get
@@ -60,7 +61,7 @@ class InspectionTasksFragment: Fragment(), InspectionTasksAdapter.OnInspectionCl
     }
 
     private fun updateTasksList(newTasksList: List<InspectionTask>) {
-        recyclerAdapter?.inspectionTasksList = newTasksList
+        recyclerAdapter?.inspectionTasksList = newTasksList.filter { it.executor.id == currentUser.id }
         progressBar.isVisible = false
     }
 
