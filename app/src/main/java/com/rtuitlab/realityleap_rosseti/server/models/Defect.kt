@@ -2,6 +2,7 @@ package com.rtuitlab.realityleap_rosseti.server.models
 
 import com.google.firebase.database.IgnoreExtraProperties
 import com.google.firebase.database.PropertyName
+import java.io.Serializable
 
 @IgnoreExtraProperties
 data class Defect(
@@ -11,4 +12,4 @@ data class Defect(
 	val description: DefectDescription = DefectDescription(),
 	@get:PropertyName("elimination_time") @set:PropertyName("elimination_time") var eliminationTime: Long? = null,
 	@get:PropertyName("critical_score") @set:PropertyName("critical_score") var criticalScore: Int? = null
-)
+): Serializable

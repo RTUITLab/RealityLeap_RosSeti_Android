@@ -8,4 +8,7 @@
     <string name="safety_event_label">Required technical measures:</string>
     <string name="inspection_task">Inspection task</string>
     <string name="need_arrive_message">You need to arrive at object to start inspection</string>
+    <string name="defects">Defects</string>
+    <string name="add_defect">Add defect</string>
+    <string name="search_defects">Search defects</string>
 </resources>

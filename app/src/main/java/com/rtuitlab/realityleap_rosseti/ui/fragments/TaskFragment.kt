@@ -10,8 +10,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.rtuitlab.realityleap_rosseti.R
 import com.rtuitlab.realityleap_rosseti.databinding.FragmentTaskBinding
 import com.rtuitlab.realityleap_rosseti.extensions.mainActivity
@@ -72,6 +74,7 @@ class TaskFragment : Fragment() {
 
     private fun setListeners() {
         locationBtn.setOnClickListener { intentOpenMap() }
+        startBtn.setOnClickListener { navigateToInspect() }
     }
 
     private fun requestLocationUpdates() {
@@ -103,4 +106,9 @@ class TaskFragment : Fragment() {
         }
         startActivity(intent)
     }
+
+    private fun navigateToInspect() = findNavController().navigate(
+        R.id.action_taskFragment_to_inspectFragment,
+        bundleOf(INSPECTION_TASK_KEY to extractInspectionTask())
+    )
 }

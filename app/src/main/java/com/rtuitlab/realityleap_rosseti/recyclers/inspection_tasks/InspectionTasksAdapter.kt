@@ -24,13 +24,13 @@ class InspectionTasksAdapter: RecyclerView.Adapter<InspectionTasksAdapter.Inspec
     var inspectionTasksList = listOf<InspectionTask>()
     set(value) {
         GlobalScope.launch(Dispatchers.Main) {
-            val adsDiffResult = withContext(Dispatchers.Default) {
+            val tasksDiffResult = withContext(Dispatchers.Default) {
                 DiffUtil.calculateDiff(
                     InspectionTasksDiffUtilCallback(inspectionTasksList, value)
                 )
             }
             field = value
-            adsDiffResult.dispatchUpdatesTo(this@InspectionTasksAdapter)
+            tasksDiffResult.dispatchUpdatesTo(this@InspectionTasksAdapter)
         }
     }
 

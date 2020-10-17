@@ -8,4 +8,7 @@
     <string name="safety_event_label">Требуемые технические мероприятия:</string>
     <string name="inspection_task">Задание осмотра</string>
     <string name="need_arrive_message">Нужно прибыть на объект, чтобы начать осмотр</string>
+    <string name="defects">Дефекты</string>
+    <string name="add_defect">Добавить дефект</string>
+    <string name="search_defects">Поиск дефектов</string>
 </resources>

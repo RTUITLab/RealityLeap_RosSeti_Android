@@ -12,10 +12,10 @@ class TaskViewModel(
 ) : ViewModel() {
 
     private companion object {
-        const val DISTANCE_FOR_ARRIVE = 6000
+        const val DISTANCE_FOR_ARRIVE = 10000
     }
 
-    val isArrived = ObservableBoolean(false)
+    val isArrived = ObservableBoolean(true) // TODO place false
 
     var currentLocation: Location? = null
         set(value) {
@@ -26,7 +26,7 @@ class TaskViewModel(
                     latitude = latLng.lat
                     longitude = latLng.lng
                 }
-                Log.i("Current location", currentLocation.distanceTo(targetLocation).toString())
+                Log.i("Current distance", currentLocation.distanceTo(targetLocation).toString())
                 isArrived.set(currentLocation.distanceTo(targetLocation) < DISTANCE_FOR_ARRIVE)
             }
         }
