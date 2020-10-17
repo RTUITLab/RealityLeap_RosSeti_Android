@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name" translatable="false">RealityLeap_RosSeti</string>
     <string name="inspection_tasks">Inspection tasks</string>
+    <string name="start_task">Start task</string>
+    <string name="show_location_btn_label">Location</string>
+    <string name="place_name_label">Place name:</string>
+    <string name="creator_name_label">Task creator:</string>
+    <string name="safety_event_label">Required technical measures:</string>
+    <string name="inspection_task">Inspection task</string>
+    <string name="need_arrive_message">You need to arrive at object to start inspection</string>
 </resources>

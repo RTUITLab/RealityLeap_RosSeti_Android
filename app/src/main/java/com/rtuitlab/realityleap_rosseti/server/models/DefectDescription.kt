@@ -6,5 +6,5 @@ import com.google.firebase.database.PropertyName
 @IgnoreExtraProperties
 data class DefectDescription(
 	val text: String = "",
-	@PropertyName("photo_urls") val photoUrls: List<String> = listOf()
+	@get:PropertyName("photo_urls") @set:PropertyName("photo_urls") var photoUrls: List<String> = listOf()
 )

@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="inspection_tasks">Задачи осмотра</string>
+    <string name="inspection_tasks">Задания осмотра</string>
+    <string name="start_task">Начать осмотр</string>
+    <string name="show_location_btn_label">На карте</string>
+    <string name="place_name_label">Наименование объекта:</string>
+    <string name="creator_name_label">Задание сформировано:</string>
+    <string name="safety_event_label">Требуемые технические мероприятия:</string>
+    <string name="inspection_task">Задание осмотра</string>
+    <string name="need_arrive_message">Нужно прибыть на объект, чтобы начать осмотр</string>
 </resources>

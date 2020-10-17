@@ -9,5 +9,14 @@
         android:id="@+id/inspectionsListFragment"
         android:name="com.rtuitlab.realityleap_rosseti.ui.fragments.InspectionTasksFragment"
         android:label="InspectionsListFragment"
-        tools:layout="@layout/fragment_inspection_tasks"/>
+        tools:layout="@layout/fragment_inspection_tasks">
+        <action
+            android:id="@+id/action_inspectionsListFragment_to_taskFragment"
+            app:destination="@id/taskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskFragment"
+        android:name="com.rtuitlab.realityleap_rosseti.ui.fragments.TaskFragment"
+        android:label="TaskFragment"
+        tools:layout="@layout/fragment_task"/>
 </navigation>

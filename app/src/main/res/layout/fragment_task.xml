@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.rtuitlab.realityleap_rosseti.viewmodels.TaskViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="4dp"
+            app:cardElevation="2dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:id="@+id/placeNameLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/place_name_label"
+                    style="@style/TextAppearance.AppCompat.Body2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Наименование объекта" />
+
+                <TextView
+                    android:id="@+id/placeName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@{viewModel.task.place.name}"
+                    app:layout_constraintEnd_toEndOf="@+id/placeNameLabel"
+                    app:layout_constraintStart_toStartOf="@+id/placeNameLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/placeNameLabel"
+                    tools:text="ВЛ 10 кВ ТП №265 - ТП № 240" />
+
+                <View
+                    android:id="@+id/separator1"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorSeparator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/placeName" />
+
+                <TextView
+                    android:id="@+id/safetyEventLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/safety_event_label"
+                    style="@style/TextAppearance.AppCompat.Body2"
+                    app:layout_constraintEnd_toEndOf="@+id/placeName"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/placeName"
+                    app:layout_constraintTop_toBottomOf="@+id/separator1"
+                    tools:text="Требуемые технические мероприятия" />
+
+                <TextView
+                    android:id="@+id/safetyEvent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@{viewModel.task.safetyEvent}"
+                    app:layout_constraintEnd_toEndOf="@+id/safetyEventLabel"
+                    app:layout_constraintStart_toStartOf="@+id/safetyEventLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/safetyEventLabel"
+                    tools:text="Не требуется. ВЛ 10 кВ ТП №265- ТП №240 находится в работе под рабочим напряжением. " />
+
+                <View
+                    android:id="@+id/separator2"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorSeparator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/safetyEvent" />
+
+                <TextView
+                    android:id="@+id/creatorLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/creator_name_label"
+                    style="@style/TextAppearance.AppCompat.Body2"
+                    app:layout_constraintEnd_toEndOf="@+id/safetyEvent"
+                    app:layout_constraintStart_toStartOf="@+id/safetyEvent"
+                    app:layout_constraintTop_toBottomOf="@+id/separator2"
+                    tools:text="Задание сформировал" />
+
+                <TextView
+                    android:id="@+id/creator"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@{viewModel.task.creator.toInitials()}"
+                    app:layout_constraintEnd_toEndOf="@+id/creatorLabel"
+                    app:layout_constraintStart_toStartOf="@+id/creatorLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/creatorLabel"
+                    tools:text="Иванов И.И." />
+
+                <View
+                    android:id="@+id/separator3"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorSeparator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/creator" />
+
+                <Button
+                    android:id="@+id/locationBtn"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/show_location_btn_label"
+                    app:layout_constraintStart_toStartOf="@+id/creator"
+                    app:layout_constraintTop_toBottomOf="@+id/separator3" />
+
+                <Button
+                    android:id="@+id/startBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/start_task"
+                    android:enabled="@{viewModel.isArrived()}"
+                    app:layout_constraintBottom_toBottomOf="@+id/locationBtn"
+                    app:layout_constraintEnd_toEndOf="@+id/creator"
+                    app:layout_constraintTop_toTopOf="@+id/locationBtn" />
+
+<!--                <TextView-->
+<!--                    android:id="@+id/need_arrive_message"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:text="@string/need_arrive_message"-->
+<!--                    android:visibility="@{viewModel.isArrived() ? View.GONE : View.VISIBLE}"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="@+id/startBtn"-->
+<!--                    app:layout_constraintStart_toStartOf="@+id/locationBtn"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/locationBtn" />-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/need_arrive_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/need_arrive_message"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="8dp"
+            android:visibility="@{viewModel.isArrived() ? View.GONE : View.VISIBLE}" />
+
+    </LinearLayout>
+
+</layout>

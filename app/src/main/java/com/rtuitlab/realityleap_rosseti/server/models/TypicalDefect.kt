@@ -6,5 +6,5 @@ import com.google.firebase.database.PropertyName
 @IgnoreExtraProperties
 data class TypicalDefect(
 	val text: String = "",
-	@PropertyName("critical_score") val criticalScore: Int = 0
+	@get:PropertyName("critical_score") @set:PropertyName("critical_score") var criticalScore: Int = 0
 )

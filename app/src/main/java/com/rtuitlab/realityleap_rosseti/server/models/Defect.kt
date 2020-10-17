@@ -7,8 +7,8 @@ import com.google.firebase.database.PropertyName
 data class Defect(
 	val id: String = "",
 	val location: String = "",
-	@PropertyName("equipment_type") val equipmentType: String = "",
+	@get:PropertyName("equipment_type") @set:PropertyName("equipment_type") var equipmentType: String = "",
 	val description: DefectDescription = DefectDescription(),
-	@PropertyName("elimination_time") val eliminationTime: Long? = null,
-	@PropertyName("critical_score") val criticalScore: Int? = null
+	@get:PropertyName("elimination_time") @set:PropertyName("elimination_time") var eliminationTime: Long? = null,
+	@get:PropertyName("critical_score") @set:PropertyName("critical_score") var criticalScore: Int? = null
 )
