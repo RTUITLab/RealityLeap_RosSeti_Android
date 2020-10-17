@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">RealityLeap_RosSeti</string>
+    <string name="app_name" translatable="false">RealityLeap_RosSeti</string>
+    <string name="inspection_tasks">Inspection tasks</string>
 </resources>
