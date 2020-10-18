@@ -1,10 +1,9 @@
 package com.rtuitlab.realityleap_rosseti.ui.fragments
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -55,11 +54,24 @@ class TaskFragment : Fragment() {
         mainActivity().title = getString(R.string.inspection_task)
         mainActivity().navigateButtonVisible(true)
         setListeners()
+        setHasOptionsMenu(true)
     }
 
     override fun onPause() {
         super.onPause()
         startBtn.isEnabled = true
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_report, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.show_report) {
+            openReport()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun checkSave() {
@@ -76,10 +88,12 @@ class TaskFragment : Fragment() {
                 takeTask()
             } else {
                 storage.deleteCurrentTask()
-                storage.storeResult(InspectionResult(
-                    inspectionTask = viewModel.task,
-                    startTime = System.currentTimeMillis()
-                ))
+                storage.storeResult(
+                    InspectionResult(
+                        inspectionTask = viewModel.task,
+                        startTime = System.currentTimeMillis()
+                    )
+                )
                 navigateToInspect()
             }
         }
@@ -108,4 +122,9 @@ class TaskFragment : Fragment() {
     private fun navigateToInspect() = findNavController().navigate(
         R.id.action_taskFragment_to_inspectFragment
     )
+
+    private fun openReport() {
+        val url = "https://realityleap-rosseti.web.app?type=task&task_id=${viewModel.task.id}"
+        startActivity(Intent(Intent.ACTION_VIEW).apply { data = Uri.parse(url) })
+    }
 }
