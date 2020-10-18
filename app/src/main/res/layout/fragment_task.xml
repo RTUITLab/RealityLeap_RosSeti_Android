@@ -145,35 +145,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/start_task"
-                    android:enabled="@{viewModel.isArrived()}"
                     app:layout_constraintBottom_toBottomOf="@+id/locationBtn"
                     app:layout_constraintEnd_toEndOf="@+id/creator"
                     app:layout_constraintTop_toTopOf="@+id/locationBtn" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/need_arrive_message"-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="16dp"-->
-<!--                    android:text="@string/need_arrive_message"-->
-<!--                    android:visibility="@{viewModel.isArrived() ? View.GONE : View.VISIBLE}"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="@+id/startBtn"-->
-<!--                    app:layout_constraintStart_toStartOf="@+id/locationBtn"-->
-<!--                    app:layout_constraintTop_toBottomOf="@+id/locationBtn" />-->
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
-
-        <TextView
-            android:id="@+id/need_arrive_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/need_arrive_message"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginVertical="8dp"
-            android:visibility="@{viewModel.isArrived() ? View.GONE : View.VISIBLE}" />
 
     </LinearLayout>
 
