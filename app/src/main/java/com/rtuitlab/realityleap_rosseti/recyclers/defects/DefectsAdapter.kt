@@ -25,9 +25,7 @@ class DefectsAdapter: RecyclerView.Adapter<DefectsAdapter.DefectHolder>() {
 		set(value) {
 			GlobalScope.launch(Dispatchers.Main) {
 				val defectsDiffResult = withContext(Dispatchers.Default) {
-					DiffUtil.calculateDiff(
-							DefectsDiffUtilCallback(defectsList, value)
-					)
+					DiffUtil.calculateDiff(DefectsDiffUtilCallback(defectsList, value))
 				}
 				field = value
 				defectsDiffResult.dispatchUpdatesTo(this@DefectsAdapter)

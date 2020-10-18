@@ -17,4 +17,11 @@
     <string name="defect_photos_label">Photos</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
+    <string name="take_task">Take task</string>
+    <string name="take_task_notify">You take task. Press \"Start inspect\" when you will arrive at place</string>
+    <string name="finish_inspect">Finish inspect</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="finish_inspect_confirm">Finish inspect?</string>
+    <string name="show_report">Show report</string>
 </resources>

@@ -17,4 +17,11 @@
     <string name="defect_photos_label">Фотографии</string>
     <string name="save">Сохранить</string>
     <string name="cancel">Отмена</string>
+    <string name="take_task">Взять задание</string>
+    <string name="take_task_notify">Вы взяли задание. Начните осмотр, когда прибудете на место.</string>
+    <string name="finish_inspect">Закончить осмотр</string>
+    <string name="no">Нет</string>
+    <string name="yes">Да</string>
+    <string name="finish_inspect_confirm">Вы действительно хотите завершить осмотр?</string>
+    <string name="show_report">Показать документ</string>
 </resources>

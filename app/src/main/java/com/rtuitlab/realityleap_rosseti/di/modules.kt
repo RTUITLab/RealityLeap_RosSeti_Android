@@ -29,7 +29,7 @@ val viewModelsModule = module {
     viewModel { InspectionTasksViewModel(get()) }
     viewModel { (task: InspectionTask) -> TaskViewModel(task) }
     viewModel { ScannerViewModel(get(), get()) }
-    viewModel { (task: InspectionTask) -> InspectViewModel(get(), task) }
+    viewModel { InspectViewModel(get(), get()) }
     viewModel { (defect: Defect) -> AddDefectViewModel(defect) }
 }
 

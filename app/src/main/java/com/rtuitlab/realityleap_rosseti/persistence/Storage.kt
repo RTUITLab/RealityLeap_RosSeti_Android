@@ -35,7 +35,6 @@ class Storage(context: Context) {
     }
 
     fun storeResult(result: InspectionResult) {
-        deleteCurrentTask()
         prefs.edit().putString(CURRENT_RESULT_KEY, Gson().toJson(result)).apply()
     }
 

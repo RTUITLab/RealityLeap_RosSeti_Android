@@ -6,9 +6,9 @@ import java.io.Serializable
 
 @IgnoreExtraProperties
 data class InspectionResult(
-	val id: String = "",
+	var id: String = "",
 	@get:PropertyName("inspection_task") @set:PropertyName("inspection_task") var inspectionTask: InspectionTask = InspectionTask(),
-	val defects: List<Defect> = listOf(),
+	var defects: List<Defect> = listOf(),
 	@get:PropertyName("start_time") @set:PropertyName("start_time") var startTime: Long = 0,
 	@get:PropertyName("finish_time") @set:PropertyName("finish_time") var finishTime: Long = 0,
 	@get:PropertyName("approve_time") @set:PropertyName("approve_time") var approveTime: Long? = null

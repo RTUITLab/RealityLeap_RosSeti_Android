@@ -13,6 +13,11 @@
         <action
             android:id="@+id/action_inspectionsListFragment_to_taskFragment"
             app:destination="@id/taskFragment" />
+        <action
+            android:id="@+id/action_inspectionsListFragment_to_inspectFragment"
+            app:destination="@id/inspectFragment"
+            app:popUpTo="@id/inspectionsListFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/taskFragment"
@@ -21,7 +26,9 @@
         tools:layout="@layout/fragment_task">
         <action
             android:id="@+id/action_taskFragment_to_inspectFragment"
-            app:destination="@id/inspectFragment" />
+            app:destination="@id/inspectFragment"
+            app:popUpTo="@id/taskFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/scannerFragment"
@@ -38,5 +45,11 @@
         android:id="@+id/inspectFragment"
         android:name="com.rtuitlab.realityleap_rosseti.ui.fragments.InspectFragment"
         android:label="InspectFragment"
-        tools:layout="@layout/fragment_inspect"/>
+        tools:layout="@layout/fragment_inspect">
+        <action
+            android:id="@+id/action_inspectFragment_to_inspectionsListFragment"
+            app:destination="@id/inspectionsListFragment"
+            app:popUpTo="@id/inspectFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

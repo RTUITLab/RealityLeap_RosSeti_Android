@@ -11,6 +11,7 @@
     </data>
 
     <LinearLayout
+        android:id="@+id/llRoot"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -144,7 +145,7 @@
                     android:id="@+id/startBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/start_task"
+                    android:text="@string/take_task"
                     app:layout_constraintBottom_toBottomOf="@+id/locationBtn"
                     app:layout_constraintEnd_toEndOf="@+id/creator"
                     app:layout_constraintTop_toTopOf="@+id/locationBtn" />

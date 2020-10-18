@@ -1,6 +1,7 @@
 package com.rtuitlab.realityleap_rosseti.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +9,12 @@ import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import com.rtuitlab.realityleap_rosseti.R
 import com.rtuitlab.realityleap_rosseti.extensions.mainActivity
 import com.rtuitlab.realityleap_rosseti.persistence.Storage
 import com.rtuitlab.realityleap_rosseti.recyclers.inspection_tasks.InspectionTasksAdapter
+import com.rtuitlab.realityleap_rosseti.server.models.InspectionResult
 import com.rtuitlab.realityleap_rosseti.server.models.InspectionTask
 import com.rtuitlab.realityleap_rosseti.ui.fragments.TaskFragment.Companion.INSPECTION_TASK_KEY
 import com.rtuitlab.realityleap_rosseti.viewmodels.InspectionTasksViewModel
@@ -36,6 +39,7 @@ class InspectionTasksFragment: Fragment(), InspectionTasksAdapter.OnInspectionCl
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        checkSave()
         mainActivity().title = getString(R.string.inspection_tasks)
         mainActivity().navigateButtonVisible(false)
         initRecyclerView()
@@ -48,6 +52,13 @@ class InspectionTasksFragment: Fragment(), InspectionTasksAdapter.OnInspectionCl
     }
 
     override fun onInspectionClicked(inspectionTask: InspectionTask) = navigateToTask(inspectionTask)
+
+    private fun checkSave() {
+        when(val save = storage.getSave()) {
+            is InspectionTask -> navigateToTask(save, false)
+            is InspectionResult -> navigateToInspect()
+        }
+    }
 
     private fun initRecyclerView() {
         recyclerAdapter = get<InspectionTasksAdapter>().apply {
@@ -63,12 +74,26 @@ class InspectionTasksFragment: Fragment(), InspectionTasksAdapter.OnInspectionCl
     }
 
     private fun updateTasksList(newTasksList: List<InspectionTask>) {
-        recyclerAdapter?.inspectionTasksList = newTasksList.filter { it.executor.id == storage.currentUser.id }
+        recyclerAdapter?.inspectionTasksList = newTasksList.filterNotNull().filter {
+            it.executor.id == storage.currentUser.id
+        }
         progressBar.isVisible = false
     }
 
-    private fun navigateToTask(inspectionTask: InspectionTask) = findNavController().navigate(
-        R.id.action_inspectionsListFragment_to_taskFragment,
-        bundleOf(INSPECTION_TASK_KEY to inspectionTask)
+    private fun navigateToTask(inspectionTask: InspectionTask, backEnabled: Boolean = true) {
+        val navOptions = if (!backEnabled) {
+            navOptions {
+                popUpTo(R.id.inspectionsListFragment) { inclusive = true }
+            }
+        } else null
+        findNavController().navigate(
+            R.id.action_inspectionsListFragment_to_taskFragment,
+            bundleOf(INSPECTION_TASK_KEY to inspectionTask),
+            navOptions
+        )
+    }
+
+    private fun navigateToInspect() = findNavController().navigate(
+        R.id.action_inspectionsListFragment_to_inspectFragment
     )
 }
