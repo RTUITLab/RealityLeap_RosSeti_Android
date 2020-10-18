@@ -11,16 +11,19 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.rtuitlab.realityleap_rosseti.R
 import com.rtuitlab.realityleap_rosseti.extensions.mainActivity
+import com.rtuitlab.realityleap_rosseti.persistence.Storage
 import com.rtuitlab.realityleap_rosseti.recyclers.inspection_tasks.InspectionTasksAdapter
 import com.rtuitlab.realityleap_rosseti.server.models.InspectionTask
 import com.rtuitlab.realityleap_rosseti.ui.fragments.TaskFragment.Companion.INSPECTION_TASK_KEY
-import com.rtuitlab.realityleap_rosseti.utils.currentUser
 import com.rtuitlab.realityleap_rosseti.viewmodels.InspectionTasksViewModel
 import kotlinx.android.synthetic.main.fragment_inspection_tasks.*
 import org.koin.android.ext.android.get
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class InspectionTasksFragment: Fragment(), InspectionTasksAdapter.OnInspectionClickListener {
+
+    private val storage: Storage by inject()
 
     private val viewModel: InspectionTasksViewModel by viewModel()
 
@@ -61,7 +64,7 @@ class InspectionTasksFragment: Fragment(), InspectionTasksAdapter.OnInspectionCl
     }
 
     private fun updateTasksList(newTasksList: List<InspectionTask>) {
-        recyclerAdapter?.inspectionTasksList = newTasksList.filter { it.executor.id == currentUser.id }
+        recyclerAdapter?.inspectionTasksList = newTasksList.filter { it.executor.id == storage.currentUser.id }
         progressBar.isVisible = false
     }
 

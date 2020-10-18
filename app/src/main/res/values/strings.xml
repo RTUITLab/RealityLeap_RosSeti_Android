@@ -11,4 +11,10 @@
     <string name="defects">Defects</string>
     <string name="add_defect">Add defect</string>
     <string name="search_defects">Search defects</string>
+    <string name="defect_location">Location</string>
+    <string name="defect_equip_type">Equipment type</string>
+    <string name="defect_text_desc">Description</string>
+    <string name="defect_photos_label">Photos</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
 </resources>

@@ -6,7 +6,7 @@ import java.io.Serializable
 
 @IgnoreExtraProperties
 data class Defect(
-	val id: String = "",
+	var id: String = "",
 	val location: String = "",
 	@get:PropertyName("equipment_type") @set:PropertyName("equipment_type") var equipmentType: String = "",
 	val description: DefectDescription = DefectDescription(),

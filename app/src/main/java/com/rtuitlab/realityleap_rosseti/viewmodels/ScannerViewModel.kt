@@ -3,12 +3,13 @@ package com.rtuitlab.realityleap_rosseti.viewmodels
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import com.rtuitlab.realityleap_rosseti.persistence.Storage
 import com.rtuitlab.realityleap_rosseti.server.EmployeesRepository
 import com.rtuitlab.realityleap_rosseti.utils.SingleLiveEvent
-import com.rtuitlab.realityleap_rosseti.utils.currentUser
 
 class ScannerViewModel(
-		employeesRepo: EmployeesRepository
+	employeesRepo: EmployeesRepository,
+	private val storage: Storage
 ): ViewModel() {
 
 	private val _authResultLiveData = SingleLiveEvent<Boolean>()
@@ -21,9 +22,9 @@ class ScannerViewModel(
 			field = value
 			employeesLiveData.value?.let { employees ->
 				employees.find { it.hash == value }?.let {
-					currentUser = it
+					storage.currentUser = it
 					_authResultLiveData.value = true
-					Log.i("Current user", currentUser.toString())
+					Log.i("Current user", storage.currentUser.toString())
 				}
 			}
 		}

@@ -11,4 +11,10 @@
     <string name="defects">Дефекты</string>
     <string name="add_defect">Добавить дефект</string>
     <string name="search_defects">Поиск дефектов</string>
+    <string name="defect_location">Место</string>
+    <string name="defect_equip_type">Тип оборудования</string>
+    <string name="defect_text_desc">Описание</string>
+    <string name="defect_photos_label">Фотографии</string>
+    <string name="save">Сохранить</string>
+    <string name="cancel">Отмена</string>
 </resources>

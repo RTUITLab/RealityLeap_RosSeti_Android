@@ -73,8 +73,9 @@ dependencies {
     // Koin
     def koin_version = "2.2.0-rc-2"
     implementation "org.koin:koin-android:$koin_version"
-    implementation "org.koin:koin-core:$koin_version"
+    implementation "org.koin:koin-core-ext:$koin_version"
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-fragment:$koin_version"
 
     // QR Scanner
     implementation 'com.budiyev.android:code-scanner:2.1.0'
